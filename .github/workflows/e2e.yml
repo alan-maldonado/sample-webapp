@@ -26,11 +26,13 @@ jobs:
       - name: Install Playwright browsers
         run: npx playwright install chromium
 
+      - name: Build app
+        run: npm run build
+
       - name: Run Playwright tests with Percy
         run: npm run test:percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          BASE_URL: https://alan-maldonado.github.io/sample-webapp/
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

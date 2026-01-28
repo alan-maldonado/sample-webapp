@@ -118,7 +118,7 @@ function deleteTask(id) {
 
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
   min-height: 100vh;
 }
 
@@ -145,9 +145,9 @@ body {
 
 .main {
   background: white;
-  border-radius: 16px;
+  border-radius: 24px;
   padding: 2rem;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
 }
 
 .add-task {
@@ -167,7 +167,7 @@ body {
 
 .task-input:focus {
   outline: none;
-  border-color: #667eea;
+  border-color: #0ea5e9;
 }
 
 .btn {
@@ -185,7 +185,7 @@ body {
 }
 
 .btn-primary {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
   color: white;
 }
 
@@ -294,7 +294,7 @@ body {
   display: block;
   font-size: 2rem;
   font-weight: 700;
-  color: #667eea;
+  color: #0ea5e9;
 }
 
 .stat-label {
