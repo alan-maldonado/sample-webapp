@@ -1,6 +1,8 @@
 import { defineConfig, devices } from '@playwright/test'
 
 const isCI = !!process.env.CI
+// const BASE_URL = 'https://alan-maldonado.github.io/sample-webapp/'
+const BASE_URL = process.env.BASE_URL
 
 export default defineConfig({
   testDir: './e2e',
@@ -10,7 +12,7 @@ export default defineConfig({
   workers: isCI ? 1 : undefined,
   reporter: 'html',
   use: {
-    baseURL: process.env.BASE_URL || 'http://localhost:4173/sample-webapp/',
+    baseURL: BASE_URL || 'http://localhost:4173/sample-webapp/',
     trace: 'on-first-retry',
   },
   projects: [
@@ -19,7 +21,7 @@ export default defineConfig({
       use: { ...devices['Desktop Chrome'] },
     },
   ],
-  webServer: process.env.BASE_URL ? undefined : {
+  webServer: BASE_URL ? undefined : {
     command: 'npm run preview',
     url: 'http://localhost:4173/sample-webapp/',
     reuseExistingServer: !isCI,

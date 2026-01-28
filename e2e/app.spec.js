@@ -3,7 +3,7 @@ import percySnapshot from '@percy/playwright'
 
 test.describe('Percy + Playwright Demo App', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+    await page.goto('/sample-webapp/')
   })
 
   test('should display the homepage with initial tasks', async ({ page }) => {
