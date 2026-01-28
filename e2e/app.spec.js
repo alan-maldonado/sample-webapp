@@ -8,7 +8,7 @@ test.describe('Percy + Playwright Demo App', () => {
 
   test('should display the homepage with initial tasks', async ({ page }) => {
     // Verify header
-    await expect(page.locator('h1')).toHaveText('Percy + Playwright Demo')
+    await expect(page.locator('h1')).toHaveText('Task Manager Pro')
 
     // Verify initial tasks are visible
     await expect(page.getByTestId('task-list')).toBeVisible()
