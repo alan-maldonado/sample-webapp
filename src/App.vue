@@ -35,8 +35,8 @@ function deleteTask(id) {
 <template>
   <div class="app">
     <header class="header">
-      <h1>Percy + Playwright Demo</h1>
-      <p class="subtitle">Visual Testing Demo Application</p>
+      <h1>Task Manager Pro</h1>
+      <p class="subtitle">Powered by Visual Regression Testing</p>
     </header>
 
     <main class="main">
@@ -104,7 +104,7 @@ function deleteTask(id) {
     </main>
 
     <footer class="footer">
-      <p>Built with Vue 3 + Vite | Testing with Playwright + Percy</p>
+      <p>Made with Vue 3 + Vite | Visual Testing by Percy</p>
     </footer>
   </div>
 </template>
@@ -117,7 +117,7 @@ function deleteTask(id) {
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
   background: linear-gradient(135deg, #0ea5e9 0%, #14b8a6 100%);
   min-height: 100vh;
 }
