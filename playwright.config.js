@@ -1,4 +1,5 @@
 import { defineConfig, devices } from '@playwright/test'
+import { createArgosReporterOptions } from "@argos-ci/playwright/reporter"
 
 const isCI = !!process.env.CI
 // const BASE_URL = 'https://alan-maldonado.github.io/sample-webapp/'
@@ -10,7 +11,13 @@ export default defineConfig({
   forbidOnly: isCI,
   retries: isCI ? 2 : 0,
   workers: isCI ? 1 : undefined,
-  reporter: 'html',
+  reporter: [
+    ['html'],
+    [
+      '@argos-ci/playwright/reporter',
+      createArgosReporterOptions({ uploadToArgos: isCI }),
+    ],
+  ],
   use: {
     baseURL: BASE_URL || 'http://localhost:4173/sample-webapp/',
     trace: 'on-first-retry',
