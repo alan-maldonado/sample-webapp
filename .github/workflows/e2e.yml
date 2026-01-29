@@ -1,4 +1,4 @@
-name: E2E Tests with Percy
+name: E2E Tests with Percy and Argos
 
 on:
   push:
@@ -29,10 +29,11 @@ jobs:
       - name: Build app
         run: npm run build
 
-      - name: Run Playwright tests with Percy
+      - name: Run Playwright tests with Percy and Argos
         run: npm run test:percy
         env:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
+          ARGOS_TOKEN: ${{ secrets.ARGOS_TOKEN }}
 
       - name: Upload Playwright report
         uses: actions/upload-artifact@v4

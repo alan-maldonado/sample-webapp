@@ -1,5 +1,6 @@
 import { test, expect } from '@playwright/test'
 import percySnapshot from '@percy/playwright'
+import { argosScreenshot } from '@argos-ci/playwright'
 
 test.describe('Percy + Playwright Demo App', () => {
   test.beforeEach(async ({ page }) => {
@@ -17,8 +18,9 @@ test.describe('Percy + Playwright Demo App', () => {
     await expect(page.getByTestId('task-3')).toBeVisible()
     await expect(page.getByTestId('task-4')).toBeVisible()
 
-    // Percy snapshot of initial state
+    // Visual snapshots of initial state
     await percySnapshot(page, 'Homepage - Initial State')
+    await argosScreenshot(page, 'Homepage - Initial State')
   })
 
   test('should add a new task', async ({ page }) => {
@@ -33,8 +35,9 @@ test.describe('Percy + Playwright Demo App', () => {
     await expect(page.locator('.task-card')).toHaveCount(5)
     await expect(page.locator('.task-title').last()).toHaveText('New E2E Test Task')
 
-    // Percy snapshot after adding task
+    // Visual snapshots after adding task
     await percySnapshot(page, 'Homepage - After Adding Task')
+    await argosScreenshot(page, 'Homepage - After Adding Task')
   })
 
   test('should toggle task status', async ({ page }) => {
@@ -48,15 +51,17 @@ test.describe('Percy + Playwright Demo App', () => {
     await toggleButton.click()
     await expect(task.locator('.status-badge')).toHaveText('in-progress')
 
-    // Percy snapshot with in-progress state
+    // Visual snapshots with in-progress state
     await percySnapshot(page, 'Homepage - Task In Progress')
+    await argosScreenshot(page, 'Homepage - Task In Progress')
 
     // Toggle to completed
     await toggleButton.click()
     await expect(task.locator('.status-badge')).toHaveText('completed')
 
-    // Percy snapshot with completed state
+    // Visual snapshots with completed state
     await percySnapshot(page, 'Homepage - Task Completed')
+    await argosScreenshot(page, 'Homepage - Task Completed')
   })
 
   test('should delete a task', async ({ page }) => {
@@ -70,8 +75,9 @@ test.describe('Percy + Playwright Demo App', () => {
     await expect(page.locator('.task-card')).toHaveCount(3)
     await expect(page.getByTestId('task-4')).not.toBeVisible()
 
-    // Percy snapshot after deletion
+    // Visual snapshots after deletion
     await percySnapshot(page, 'Homepage - After Deleting Task')
+    await argosScreenshot(page, 'Homepage - After Deleting Task')
   })
 
   test('should update statistics correctly', async ({ page }) => {
@@ -91,8 +97,9 @@ test.describe('Percy + Playwright Demo App', () => {
     await expect(stats.locator('.stat-card').nth(1).locator('.stat-number')).toHaveText('1')
     await expect(stats.locator('.stat-card').nth(2).locator('.stat-number')).toHaveText('1')
 
-    // Percy snapshot with updated stats
+    // Visual snapshots with updated stats
     await percySnapshot(page, 'Homepage - Updated Statistics')
+    await argosScreenshot(page, 'Homepage - Updated Statistics')
   })
 
   test('should handle keyboard input for adding tasks', async ({ page }) => {
