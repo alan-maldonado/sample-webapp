@@ -35,7 +35,7 @@ function deleteTask(id) {
 <template>
   <div class="app">
     <header class="header">
-      <h1>Percy + Playwright Demo</h1>
+      <h1>Percy + Playwright & Argos Demo</h1>
       <p class="subtitle">Visual Testing Demo Application</p>
     </header>
 
